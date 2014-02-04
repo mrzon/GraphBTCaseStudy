@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="ASCII"?>
+<pi:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:al="http://eclipse.org/graphiti/mm/algorithms" xmlns:pi="http://eclipse.org/graphiti/mm/pictograms" visible="true" gridUnit="10" diagramTypeId="graphbt" name="AutomaticDoor.btdiagram" snapToGrid="true" pictogramLinks="//@children.0/@link //@children.0/@children.1/@link //@children.0/@children.2/@link //@children.0/@children.3/@link //@children.0/@children.4/@link //@children.0/@children.5/@link //@children.0/@children.6/@link //@children.1/@link //@children.1/@children.1/@link //@children.1/@children.2/@link //@children.1/@children.3/@link //@children.1/@children.4/@link //@children.1/@children.5/@link //@children.1/@children.6/@link //@children.1/@children.0/@link //@children.2/@link //@children.2/@children.1/@link //@children.2/@children.2/@link //@children.2/@children.3/@link //@children.2/@children.4/@link //@children.2/@children.5/@link //@children.2/@children.6/@link //@children.3/@link //@children.3/@children.1/@link //@children.3/@children.2/@link //@children.3/@children.3/@link //@children.3/@children.4/@link //@children.3/@children.5/@link //@children.3/@children.6/@link //@children.4/@link //@children.4/@children.1/@link //@children.4/@children.2/@link //@children.4/@children.3/@link //@children.4/@children.4/@link //@children.4/@children.5/@link //@children.4/@children.6/@link //@children.5/@link //@children.5/@children.1/@link //@children.5/@children.2/@link //@children.5/@children.3/@link //@children.5/@children.4/@link //@children.5/@children.5/@link //@children.5/@children.6/@link //@children.6/@link //@children.6/@children.1/@link //@children.6/@children.2/@link //@children.6/@children.3/@link //@children.6/@children.4/@link //@children.6/@children.5/@link //@children.6/@children.6/@link //@children.7/@link //@children.7/@children.1/@link //@children.7/@children.2/@link //@children.7/@children.3/@link //@children.7/@children.4/@link //@children.7/@children.5/@link //@children.7/@children.6/@link //@connections.0/@link //@connections.1/@link //@connections.2/@link //@connections.3/@link //@connections.4/@link //@connections.5/@link //@children.8/@link //@children.8/@children.1/@link //@children.8/@children.2/@link //@children.8/@children.3/@link //@children.8/@children.4/@link //@children.8/@children.5/@link //@children.8/@children.6/@link //@connections.6/@link" version="0.9.2">
+  <graphicsAlgorithm xsi:type="al:Rectangle" background="//@colors.1" foreground="//@colors.0" lineWidth="1" transparency="0.0" width="1000" height="1000"/>
+  <children xsi:type="pi:ContainerShape" visible="true" active="true">
+    <graphicsAlgorithm xsi:type="al:Rectangle" background="//@colors.3" foreground="//@colors.2" lineWidth="1" transparency="0.0" width="170" height="80" x="370" y="30"/>
+    <link>
+      <businessObjects href="AutomaticDoor.model#/15"/>
+    </link>
+    <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="//@connections.0"/>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0">
+        <points x="40"/>
+        <points x="40" y="80"/>
+      </graphicsAlgorithm>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="130" height="20" x="40" y="20" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="Host"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@componentList/@components.7"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="130" height="20" x="40" y="50" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="[start]"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@componentList/@components.7/@behaviors.0"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="40" height="20" y="20" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/16"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="40" height="20" y="50" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/9"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="30" height="20" x="140" y="5" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/8"/>
+      </link>
+    </children>
+    <children visible="true" active="true">
+      <graphicsAlgorithm xsi:type="al:Text" background="//@colors.2" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="20" height="25" x="150" y="60" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/17"/>
+      </link>
+    </children>
+  </children>
+  <children xsi:type="pi:ContainerShape" visible="true" active="true">
+    <graphicsAlgorithm xsi:type="al:Rectangle" background="//@colors.1" foreground="//@colors.2" lineWidth="1" transparency="0.0" width="611" height="541" x="840" y="120"/>
+    <link>
+      <businessObjects href="AutomaticDoor.model#/0/@layoutList"/>
+    </link>
+    <anchors xsi:type="pi:ChopboxAnchor"/>
+    <children xsi:type="pi:ContainerShape" visible="true" active="true">
+      <graphicsAlgorithm xsi:type="al:Image" lineWidth="1" transparency="0.0" width="491" height="368" x="60" y="40" id="C:/Users/Adigun/runtime-EclipseApplication/AutomaticDoor/resource/CMALL.jpg" stretchH="true" stretchV="true" proportional="true"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@layoutList/@layouts.0"/>
+      </link>
+      <anchors xsi:type="pi:ChopboxAnchor"/>
+    </children>
+    <children xsi:type="pi:ContainerShape" visible="true" active="true">
+      <graphicsAlgorithm xsi:type="al:Image" lineWidth="1" transparency="0.0" width="432" height="164" x="90" y="340" id="C:/Users/Adigun/runtime-EclipseApplication/AutomaticDoor/resource/CBUTTON1.png" stretchH="true" stretchV="true" proportional="true"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@layoutList/@layouts.1"/>
+      </link>
+      <anchors xsi:type="pi:ChopboxAnchor"/>
+    </children>
+    <children xsi:type="pi:ContainerShape" visible="true" active="true">
+      <graphicsAlgorithm xsi:type="al:Image" lineWidth="1" transparency="0.0" width="173" height="304" x="130" y="100" id="C:/Users/Adigun/runtime-EclipseApplication/AutomaticDoor/resource/CDOORLEFT.png" stretchH="true" stretchV="true" proportional="true"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@layoutList/@layouts.2"/>
+      </link>
+      <anchors xsi:type="pi:ChopboxAnchor"/>
+    </children>
+    <children xsi:type="pi:ContainerShape" visible="true" active="true">
+      <graphicsAlgorithm xsi:type="al:Image" lineWidth="1" transparency="0.0" width="173" height="304" x="300" y="100" id="C:/Users/Adigun/runtime-EclipseApplication/AutomaticDoor/resource/CDOORRIGHT.png" stretchH="true" stretchV="true" proportional="true"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@layoutList/@layouts.3"/>
+      </link>
+      <anchors xsi:type="pi:ChopboxAnchor"/>
+    </children>
+    <children xsi:type="pi:ContainerShape" visible="true" active="true">
+      <graphicsAlgorithm xsi:type="al:Image" lineWidth="1" transparency="0.0" width="96" height="354" x="40" y="50" id="C:/Users/Adigun/runtime-EclipseApplication/AutomaticDoor/resource/CWALLLEFT.png" stretchH="true" stretchV="true" proportional="true"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@layoutList/@layouts.4"/>
+      </link>
+      <anchors xsi:type="pi:ChopboxAnchor"/>
+    </children>
+    <children xsi:type="pi:ContainerShape" visible="true" active="true">
+      <graphicsAlgorithm xsi:type="al:Image" lineWidth="1" transparency="0.0" width="345" height="57" x="130" y="50" id="C:/Users/Adigun/runtime-EclipseApplication/AutomaticDoor/resource/CWALLTOP.png" stretchH="true" stretchV="true" proportional="true"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@layoutList/@layouts.5"/>
+      </link>
+      <anchors xsi:type="pi:ChopboxAnchor"/>
+    </children>
+    <children xsi:type="pi:ContainerShape" visible="true" active="true">
+      <graphicsAlgorithm xsi:type="al:Image" lineWidth="1" transparency="0.0" width="96" height="354" x="470" y="50" id="C:/Users/Adigun/runtime-EclipseApplication/AutomaticDoor/resource/CWALLRIGHT.png" stretchH="true" stretchV="true" proportional="true"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@layoutList/@layouts.6"/>
+      </link>
+      <anchors xsi:type="pi:ChopboxAnchor"/>
+    </children>
+  </children>
+  <children xsi:type="pi:ContainerShape" visible="true" active="true">
+    <graphicsAlgorithm xsi:type="al:Rectangle" background="//@colors.3" foreground="//@colors.2" lineWidth="1" transparency="0.0" width="170" height="80" x="370" y="170"/>
+    <link>
+      <businessObjects href="AutomaticDoor.model#/15/@edge/@childNode.0/@target"/>
+    </link>
+    <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="//@connections.1 //@connections.2 //@connections.3" incomingConnections="//@connections.0"/>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0">
+        <points x="40"/>
+        <points x="40" y="80"/>
+      </graphicsAlgorithm>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="130" height="20" x="40" y="20" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="StepSensor"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@componentList/@components.0"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="130" height="20" x="40" y="50" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="???pressed???"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@componentList/@components.0/@behaviors.1"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="40" height="20" y="20" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/16"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="40" height="20" y="50" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/9"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="30" height="20" x="140" y="5" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/8"/>
+      </link>
+    </children>
+    <children visible="true" active="true">
+      <graphicsAlgorithm xsi:type="al:Text" background="//@colors.2" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="20" height="25" x="150" y="60" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/17"/>
+      </link>
+    </children>
+  </children>
+  <children xsi:type="pi:ContainerShape" visible="true" active="true">
+    <graphicsAlgorithm xsi:type="al:Rectangle" background="//@colors.3" foreground="//@colors.2" lineWidth="1" transparency="0.0" width="170" height="80" x="180" y="310"/>
+    <link>
+      <businessObjects href="AutomaticDoor.model#/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target"/>
+    </link>
+    <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="//@connections.4 //@connections.5" incomingConnections="//@connections.1"/>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0">
+        <points x="40"/>
+        <points x="40" y="80"/>
+      </graphicsAlgorithm>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="130" height="20" x="40" y="20" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="StepSensor"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@componentList/@components.0"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="130" height="20" x="40" y="50" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="???released???"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@componentList/@components.0/@behaviors.2"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="40" height="20" y="20" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/16"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="40" height="20" y="50" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/9"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="30" height="20" x="140" y="5" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/8"/>
+      </link>
+    </children>
+    <children visible="true" active="true">
+      <graphicsAlgorithm xsi:type="al:Text" background="//@colors.2" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="20" height="25" x="150" y="60" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/17"/>
+      </link>
+    </children>
+  </children>
+  <children xsi:type="pi:ContainerShape" visible="true" active="true">
+    <graphicsAlgorithm xsi:type="al:Rectangle" background="//@colors.3" foreground="//@colors.2" lineWidth="1" transparency="0.0" width="170" height="80" x="465" y="310"/>
+    <link>
+      <businessObjects href="AutomaticDoor.model#/15/@edge/@childNode.0/@target/@edge/@childNode.1/@target"/>
+    </link>
+    <anchors xsi:type="pi:ChopboxAnchor" incomingConnections="//@connections.2"/>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0">
+        <points x="40"/>
+        <points x="40" y="80"/>
+      </graphicsAlgorithm>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="130" height="20" x="40" y="20" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="LeftDoor"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@componentList/@components.1"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="130" height="20" x="40" y="50" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="[shiftleft]"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@componentList/@components.1/@behaviors.0"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="40" height="20" y="20" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/16"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="40" height="20" y="50" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/9"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="30" height="20" x="140" y="5" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/8"/>
+      </link>
+    </children>
+    <children visible="true" active="true">
+      <graphicsAlgorithm xsi:type="al:Text" background="//@colors.2" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="20" height="25" x="150" y="60" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/17"/>
+      </link>
+    </children>
+  </children>
+  <children xsi:type="pi:ContainerShape" visible="true" active="true">
+    <graphicsAlgorithm xsi:type="al:Rectangle" background="//@colors.3" foreground="//@colors.2" lineWidth="1" transparency="0.0" width="170" height="80" x="655" y="310"/>
+    <link>
+      <businessObjects href="AutomaticDoor.model#/15/@edge/@childNode.0/@target/@edge/@childNode.2/@target"/>
+    </link>
+    <anchors xsi:type="pi:ChopboxAnchor" incomingConnections="//@connections.3"/>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0">
+        <points x="40"/>
+        <points x="40" y="80"/>
+      </graphicsAlgorithm>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="130" height="20" x="40" y="20" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="RightDoor"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@componentList/@components.2"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="130" height="20" x="40" y="50" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="[shiftright]"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@componentList/@components.2/@behaviors.1"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="40" height="20" y="20" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/16"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="40" height="20" y="50" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/9"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="30" height="20" x="140" y="5" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/8"/>
+      </link>
+    </children>
+    <children visible="true" active="true">
+      <graphicsAlgorithm xsi:type="al:Text" background="//@colors.2" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="20" height="25" x="150" y="60" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/17"/>
+      </link>
+    </children>
+  </children>
+  <children xsi:type="pi:ContainerShape" visible="true" active="true">
+    <graphicsAlgorithm xsi:type="al:Rectangle" background="//@colors.3" foreground="//@colors.2" lineWidth="1" transparency="0.0" width="170" height="80" x="85" y="450"/>
+    <link>
+      <businessObjects href="AutomaticDoor.model#/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target"/>
+    </link>
+    <anchors xsi:type="pi:ChopboxAnchor" incomingConnections="//@connections.4"/>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0">
+        <points x="40"/>
+        <points x="40" y="80"/>
+      </graphicsAlgorithm>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="130" height="20" x="40" y="20" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="LeftDoor"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@componentList/@components.1"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="130" height="20" x="40" y="50" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="[shiftright]"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@componentList/@components.1/@behaviors.1"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="40" height="20" y="20" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/16"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="40" height="20" y="50" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/9"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="30" height="20" x="140" y="5" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/8"/>
+      </link>
+    </children>
+    <children visible="true" active="true">
+      <graphicsAlgorithm xsi:type="al:Text" background="//@colors.2" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="20" height="25" x="150" y="60" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/17"/>
+      </link>
+    </children>
+  </children>
+  <children xsi:type="pi:ContainerShape" visible="true" active="true">
+    <graphicsAlgorithm xsi:type="al:Rectangle" background="//@colors.3" foreground="//@colors.2" lineWidth="1" transparency="0.0" width="170" height="80" x="275" y="450"/>
+    <link>
+      <businessObjects href="AutomaticDoor.model#/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target"/>
+    </link>
+    <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="//@connections.6" incomingConnections="//@connections.5"/>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0">
+        <points x="40"/>
+        <points x="40" y="80"/>
+      </graphicsAlgorithm>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="130" height="20" x="40" y="20" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="RightDoor"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@componentList/@components.2"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="130" height="20" x="40" y="50" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="[shiftleft]"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@componentList/@components.2/@behaviors.0"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="40" height="20" y="20" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/16"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="40" height="20" y="50" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/9"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="30" height="20" x="140" y="5" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/8"/>
+      </link>
+    </children>
+    <children visible="true" active="true">
+      <graphicsAlgorithm xsi:type="al:Text" background="//@colors.2" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="20" height="25" x="150" y="60" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/17"/>
+      </link>
+    </children>
+  </children>
+  <children xsi:type="pi:ContainerShape" visible="true" active="true">
+    <graphicsAlgorithm xsi:type="al:Rectangle" background="//@colors.3" foreground="//@colors.2" lineWidth="1" transparency="0.0" width="170" height="80" x="275" y="590"/>
+    <link>
+      <businessObjects href="AutomaticDoor.model#/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target"/>
+    </link>
+    <anchors xsi:type="pi:ChopboxAnchor" incomingConnections="//@connections.6"/>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0">
+        <points x="40"/>
+        <points x="40" y="80"/>
+      </graphicsAlgorithm>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="130" height="20" x="40" y="20" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="Host"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@componentList/@components.7"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="130" height="20" x="40" y="50" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="[start]"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/0/@componentList/@components.7/@behaviors.0"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="40" height="20" y="20" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/16"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="40" height="20" y="50" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/9"/>
+      </link>
+    </children>
+    <children visible="true">
+      <graphicsAlgorithm xsi:type="al:Text" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="30" height="20" x="140" y="5" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value="^"/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/8"/>
+      </link>
+    </children>
+    <children visible="true" active="true">
+      <graphicsAlgorithm xsi:type="al:Text" background="//@colors.2" foreground="//@colors.2" lineWidth="1" filled="false" transparency="0.0" width="20" height="25" x="150" y="60" font="//@fonts.0" horizontalAlignment="ALIGNMENT_CENTER" value=""/>
+      <link>
+        <businessObjects href="AutomaticDoor.model#/17"/>
+      </link>
+    </children>
+  </children>
+  <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="//@children.0/@anchors.0" end="//@children.2/@anchors.0">
+    <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineStyle="UNSPECIFIED"/>
+    <link>
+      <businessObjects href="AutomaticDoor.model#/15/@edge/@childNode.0"/>
+    </link>
+    <connectionDecorators visible="true" locationRelative="true" location="1.0">
+      <graphicsAlgorithm xsi:type="al:Polygon" lineStyle="UNSPECIFIED">
+        <points x="-15" y="10"/>
+        <points/>
+        <points x="-15" y="-10"/>
+        <points x="-15" y="10"/>
+      </graphicsAlgorithm>
+    </connectionDecorators>
+  </connections>
+  <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="//@children.2/@anchors.0" end="//@children.3/@anchors.0">
+    <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineStyle="UNSPECIFIED"/>
+    <link>
+      <businessObjects href="AutomaticDoor.model#/15/@edge/@childNode.0/@target/@edge/@childNode.0"/>
+    </link>
+    <connectionDecorators visible="true" locationRelative="true" location="1.0">
+      <graphicsAlgorithm xsi:type="al:Polygon" lineStyle="UNSPECIFIED">
+        <points x="-15" y="10"/>
+        <points/>
+        <points x="-15" y="-10"/>
+        <points x="-15" y="10"/>
+      </graphicsAlgorithm>
+    </connectionDecorators>
+  </connections>
+  <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="//@children.2/@anchors.0" end="//@children.4/@anchors.0">
+    <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineStyle="UNSPECIFIED"/>
+    <link>
+      <businessObjects href="AutomaticDoor.model#/15/@edge/@childNode.0/@target/@edge/@childNode.1"/>
+    </link>
+    <connectionDecorators visible="true" locationRelative="true" location="1.0">
+      <graphicsAlgorithm xsi:type="al:Polygon" lineStyle="UNSPECIFIED">
+        <points x="-15" y="10"/>
+        <points/>
+        <points x="-15" y="-10"/>
+        <points x="-15" y="10"/>
+      </graphicsAlgorithm>
+    </connectionDecorators>
+  </connections>
+  <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="//@children.2/@anchors.0" end="//@children.5/@anchors.0">
+    <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineStyle="UNSPECIFIED"/>
+    <link>
+      <businessObjects href="AutomaticDoor.model#/15/@edge/@childNode.0/@target/@edge/@childNode.2"/>
+    </link>
+    <connectionDecorators visible="true" locationRelative="true" location="1.0">
+      <graphicsAlgorithm xsi:type="al:Polygon" lineStyle="UNSPECIFIED">
+        <points x="-15" y="10"/>
+        <points/>
+        <points x="-15" y="-10"/>
+        <points x="-15" y="10"/>
+      </graphicsAlgorithm>
+    </connectionDecorators>
+  </connections>
+  <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="//@children.3/@anchors.0" end="//@children.6/@anchors.0">
+    <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineStyle="UNSPECIFIED"/>
+    <link>
+      <businessObjects href="AutomaticDoor.model#/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0"/>
+    </link>
+    <connectionDecorators visible="true" locationRelative="true" location="1.0">
+      <graphicsAlgorithm xsi:type="al:Polygon" lineStyle="UNSPECIFIED">
+        <points x="-15" y="10"/>
+        <points/>
+        <points x="-15" y="-10"/>
+        <points x="-15" y="10"/>
+      </graphicsAlgorithm>
+    </connectionDecorators>
+  </connections>
+  <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="//@children.3/@anchors.0" end="//@children.7/@anchors.0">
+    <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineStyle="UNSPECIFIED"/>
+    <link>
+      <businessObjects href="AutomaticDoor.model#/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1"/>
+    </link>
+    <connectionDecorators visible="true" locationRelative="true" location="1.0">
+      <graphicsAlgorithm xsi:type="al:Polygon" lineStyle="UNSPECIFIED">
+        <points x="-15" y="10"/>
+        <points/>
+        <points x="-15" y="-10"/>
+        <points x="-15" y="10"/>
+      </graphicsAlgorithm>
+    </connectionDecorators>
+  </connections>
+  <connections xsi:type="pi:FreeFormConnection" visible="true" active="true" start="//@children.7/@anchors.0" end="//@children.8/@anchors.0">
+    <graphicsAlgorithm xsi:type="al:Polyline" foreground="//@colors.2" lineStyle="UNSPECIFIED"/>
+    <link>
+      <businessObjects href="AutomaticDoor.model#/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0"/>
+    </link>
+    <connectionDecorators visible="true" locationRelative="true" location="1.0">
+      <graphicsAlgorithm xsi:type="al:Polygon" lineStyle="UNSPECIFIED">
+        <points x="-15" y="10"/>
+        <points/>
+        <points x="-15" y="-10"/>
+        <points x="-15" y="10"/>
+      </graphicsAlgorithm>
+    </connectionDecorators>
+  </connections>
+  <colors red="227" green="238" blue="249"/>
+  <colors red="255" green="255" blue="255"/>
+  <colors/>
+  <colors red="153" green="255" blue="102"/>
+  <fonts name="Arial" size="8"/>
+</pi:Diagram>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Adigun/git/GraphBTv1.1/org.be.graphbt.common/files/lib/swt.jar" rootpath="/MousePointer/src"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Adigun/git/GraphBTv1.1/org.be.graphbt.common/files/lib/absfrontend.jar" rootpath="/MousePointer/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="src"/>
+</classpath>

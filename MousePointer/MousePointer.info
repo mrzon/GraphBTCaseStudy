@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:org.be.graphbt.model="http://graphbt/1.0">
+  <org.be.graphbt.model:RequirementList/>
+  <org.be.graphbt.model:Libraries>
+    <import name="Mouse" desc="This class is used as interface with implementation." location="files/lib/dist/com.util.pc.mouse/" id="com.util.pc.mouse">
+      <methods name="point" type="Unit"/>
+      <methods name="patrol" type="Unit"/>
+      <methods name="stop" type="Unit"/>
+      <methods name="setX" type="Unit">
+        <parameters name="x" type="Int"/>
+      </methods>
+      <methods name="setY" type="Unit">
+        <parameters name="y" type="Int"/>
+      </methods>
+      <methods name="setX2" type="Unit">
+        <parameters name="x2" type="Int"/>
+      </methods>
+      <methods name="setY2" type="Unit">
+        <parameters name="y2" type="Int"/>
+      </methods>
+    </import>
+  </org.be.graphbt.model:Libraries>
+  <org.be.graphbt.model:ComponentList>
+    <components componentName="Mouse" componentRef="C1">
+      <behaviors behaviorType="ExternalInput" behaviorName="X" behaviorRef="1"/>
+      <behaviors behaviorType="ExternalInput" behaviorName="Y" behaviorRef="2"/>
+      <behaviors behaviorName="move" behaviorRef="3" technicalDetail="if(mouse_var != null) {&#xD;&#xA;mouse_var!setX(x_var);&#xD;&#xA;mouse_var!setY(y_var);&#xD;&#xA;mouse_var!point();&#xD;&#xA;} else {&#xD;&#xA;&#x9;IO io = new IOImpl();&#xD;&#xA;&#x9;io.print(&quot;Mouse var is null&quot;);&#xD;&#xA;}"/>
+      <behaviors behaviorType="ExternalInput" behaviorName="X2" behaviorRef="21"/>
+      <behaviors behaviorType="ExternalInput" behaviorName="Y2" behaviorRef="11"/>
+      <behaviors behaviorName="patrol" behaviorRef="4"/>
+      <behaviors behaviorName="stop" behaviorRef="31" technicalDetail="IO io=new IOImpl();&#xD;&#xA;io.print(&quot;Stop the movement&quot;);"/>
+      <behaviors behaviorType="Guard" behaviorName="active" behaviorRef="5"/>
+      <behaviors behaviorName="active" behaviorRef="6" technicalDetail="IO io = new IOImpl();&#xD;&#xA;io.print(&quot;set active to true&quot;);"/>
+      <uses name="Mouse" desc="This class is used as interface with implementation." location="files/lib/dist/com.util.pc.mouse/" id="com.util.pc.mouse">
+        <methods name="point" type="Unit"/>
+        <methods name="patrol" type="Unit"/>
+        <methods name="stop" type="Unit"/>
+        <methods name="setX" type="Unit">
+          <parameters name="x" type="Int"/>
+        </methods>
+        <methods name="setY" type="Unit">
+          <parameters name="y" type="Int"/>
+        </methods>
+        <methods name="setX2" type="Unit">
+          <parameters name="x2" type="Int"/>
+        </methods>
+        <methods name="setY2" type="Unit">
+          <parameters name="y2" type="Int"/>
+        </methods>
+      </uses>
+    </components>
+    <components componentName="Host" componentRef="C2">
+      <behaviors behaviorType="ExternalOutput" behaviorName="STRING_choose" behaviorRef="1"/>
+      <behaviors behaviorType="ExternalOutput" behaviorName="STRING_1_Point_to" behaviorRef="2"/>
+      <behaviors behaviorType="ExternalOutput" behaviorName="STRING_2_Patrol" behaviorRef="3"/>
+      <behaviors behaviorType="ExternalInput" behaviorName="input" behaviorRef="4"/>
+      <behaviors behaviorType="ExternalOutput" behaviorName="STRING_3_exit" behaviorRef="5"/>
+      <behaviors behaviorType="Selection" behaviorName="input=3" behaviorRef="6"/>
+      <behaviors behaviorType="Selection" behaviorName="input=1" behaviorRef="12"/>
+      <behaviors behaviorType="Selection" behaviorName="input=2" behaviorRef="11"/>
+      <behaviors behaviorType="ExternalOutput" behaviorName="STRING_masukan_X1" behaviorRef="24"/>
+      <behaviors behaviorType="ExternalOutput" behaviorName="STRING_masukan_Y1" behaviorRef="22"/>
+      <behaviors behaviorType="ExternalOutput" behaviorName="STRING_masukkan_X2" behaviorRef="23"/>
+      <behaviors behaviorType="ExternalOutput" behaviorName="STRING_masukan_Y2" behaviorRef="32"/>
+      <behaviors behaviorType="ExternalOutput" behaviorName="STRING_press_any_key_to_exit" behaviorRef="33"/>
+      <behaviors behaviorName="start" behaviorRef="31" technicalDetail="IO io = new IOImpl();&#xD;&#xA;io.print(&quot;Try to go to above&quot;);"/>
+    </components>
+  </org.be.graphbt.model:ComponentList>
+  <org.be.graphbt.model:FormulaList/>
+</xmi:XMI>

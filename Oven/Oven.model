@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.be.graphbt.model="http://graphbt/1.0">
+  <org.be.graphbt.model:BEModel name="Oven" reversionNode="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target /15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.2/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target /15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target /15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target /15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target" subtitle="A system to reflect a simple oven functionality. " version="v1.2">
+    <dbt rootNode="/15"/>
+    <componentList>
+      <components componentName="OVEN" componentRef="C7">
+        <behaviors behaviorName="Open" behaviorRef="1"/>
+        <behaviors behaviorName="Idle" behaviorRef="2"/>
+        <behaviors behaviorName="Cooking[One_Minute]" behaviorRef="3"/>
+        <behaviors behaviorName="Cook" behaviorRef="4" behaviorDesc="" technicalDetail="IO io = new IOImpl();&#xD;&#xA;io.print(&quot;Start cooking&quot;);"/>
+        <behaviors behaviorName="Cooking[Stopped]" behaviorRef="5"/>
+        <behaviors behaviorName="Cooking_Finished" behaviorRef="7" behaviorDesc=""/>
+        <behaviors behaviorName="Cooking[Extra_Minute]" behaviorRef="8"/>
+        <behaviors behaviorType="ExternalInput" behaviorName="TimedOut" behaviorRef="6"/>
+        <behaviors behaviorType="ExternalInput" behaviorName="PushButton" behaviorRef="10"/>
+        <behaviors behaviorType="ExternalInput" behaviorName="OpenDoor" behaviorRef="11"/>
+        <behaviors behaviorType="ExternalInput" behaviorName="CloseDoor" behaviorRef="12"/>
+        <behaviors behaviorType="ExternalInput" behaviorName="TimerTimedOut" behaviorRef="13"/>
+        <behaviors behaviorType="ExternalOutput" behaviorName="STRING_Hai" behaviorRef="14"/>
+      </components>
+      <components componentName="BEEPER" componentRef="C1">
+        <behaviors behaviorName="Idle" behaviorRef="1"/>
+        <behaviors behaviorName="Warning_Beep" behaviorRef="2" behaviorDesc="" technicalDetail="sound_var!play(&quot;resource/beep.wav&quot;);"/>
+        <uses name="Sound" desc="This component can be used to play sound" location="files/lib/dist/com.media.pc.sound/" id="com.media.pc.sound">
+          <methods name="play" type="Int">
+            <parameters name="path" type="String"/>
+          </methods>
+        </uses>
+      </components>
+      <components componentName="LIGHT" componentRef="C2">
+        <behaviors behaviorName="On" behaviorRef="1"/>
+        <behaviors behaviorName="Off" behaviorRef="3"/>
+        <behaviors behaviorType="Selection" behaviorName="On" behaviorRef="2"/>
+      </components>
+      <components componentName="POWER_TUBE" componentRef="C3">
+        <behaviors behaviorName="Off" behaviorRef="1"/>
+        <behaviors behaviorName="Energised" behaviorRef="2" technicalDetail=""/>
+        <uses name="Display" desc="This component can be used to show GUI of the Model" location="files/lib/dist/com.util.pc.gui/" id="com.util.pc.gui">
+          <methods name="registerComponent" type="Unit">
+            <parameters name="str" type="String"/>
+            <parameters name="w" type="Component"/>
+          </methods>
+          <methods name="removeComponent" type="Unit">
+            <parameters name="key" type=""/>
+          </methods>
+          <methods name="getComponent" type="Component">
+            <parameters name="" type=""/>
+          </methods>
+        </uses>
+      </components>
+      <components componentName="FOOD" componentRef="C6"/>
+      <components componentName="TIMER" componentRef="C9">
+        <attributes type="Int" name="duration" value="5"/>
+        <state name="START" ref="S0" desc="Indicating that the timer is started">
+          <attributes/>
+        </state>
+        <state name="TIMEOUT" ref="S1" desc="The condition that the timer already timeout">
+          <attributes/>
+        </state>
+        <behaviors behaviorName="OneMinute" behaviorRef="1" technicalDetail="timer_var!start();"/>
+        <behaviors behaviorName="ExtraMinute" behaviorRef="2" technicalDetail="Fut&lt;Unit> u = timer_var!addMinute(1);&#xD;&#xA;await u?;"/>
+        <behaviors behaviorName="Stopped" behaviorRef="3" technicalDetail="IO io=new IOImpl();&#xD;&#xA;io.print(&quot;Stop the timer&quot;);&#xD;&#xA;if(timer_var==null) {&#xD;&#xA;&#x9;io.print(&quot;Timer is null&quot;);&#xD;&#xA;} else {&#xD;&#xA;Fut&lt;Unit> u = timer_var!stop();&#xD;&#xA;await u?;&#xD;&#xA;}"/>
+        <behaviors behaviorType="Guard" behaviorName="timeout" behaviorRef="4" behaviorDesc="Wait until the timer is timed out." technicalDetail="Fut&lt;Bool> b = timer_var!timeout();&#xD;&#xA;await b?;&#xD;&#xA;timeout_var = b.get;"/>
+        <behaviors behaviorName="START" behaviorRef="0" behaviorDesc="Start the timer" technicalDetail="timer_var!start();"/>
+        <uses name="Timer" desc="This component can be used as a Timer" location="files/lib/dist/com.util.pc.timer/" id="com.util.pc.timer">
+          <methods name="start" type="Unit"/>
+          <methods name="stop" type="Unit"/>
+          <methods name="timeout" type="Bool"/>
+          <methods name="addMinute" type="Unit">
+            <parameters name="m" type="Int"/>
+          </methods>
+          <methods name="addSecond" type="Unit">
+            <parameters name="s" type="Int"/>
+          </methods>
+          <methods name="addHour" type="Unit">
+            <parameters name="h" type="Int"/>
+          </methods>
+          <states name="START" ref="S0" desc="Indicating that the timer is started"/>
+          <states name="TIMEOUT" ref="S1" desc="The condition that the timer already timeout">
+            <attributes>
+              <info key="TIMEOUT" value="0"/>
+            </attributes>
+          </states>
+          <behaviors behaviorName="START" behaviorRef="0" behaviorDesc="Start the timer" technicalDetail="timer_var!start();"/>
+          <attributes type="Int" name="duration" value="5"/>
+        </uses>
+      </components>
+      <components componentName="BUTTON" componentRef="CBUTTON1" componentDesc="A multifunction button. The button can be used for many thing.">
+        <state name="IDLE" ref="S1" desc="The condition when the button is idle.">
+          <attributes/>
+        </state>
+        <state name="COOKING" ref="S2" desc="The button state when the oven is cooking.">
+          <attributes/>
+        </state>
+        <state name="NONE" ref="S0" desc="The condition when the button is just like it is.">
+          <attributes/>
+        </state>
+        <behaviors behaviorType="Guard" behaviorName="clicked" behaviorRef="1" behaviorDesc="To detect whether the button is clicked"/>
+        <behaviors behaviorType="Guard" behaviorName="pressed" behaviorRef="2" behaviorDesc="To detect whether the button is pressed"/>
+        <behaviors behaviorType="Guard" behaviorName="released" behaviorRef="3" behaviorDesc="To detect whether the button is released"/>
+        <behaviors behaviorName="COOKING" behaviorRef="4" behaviorDesc="Realize cooking state."/>
+        <behaviors behaviorName="IDLE" behaviorRef="5"/>
+        <behaviors behaviorName="NONE" behaviorRef="6" behaviorDesc=""/>
+        <behaviors behaviorType="Selection" behaviorName="COOKING" behaviorRef="7"/>
+        <uses name="Display" desc="This component can be used to show GUI of the Model" location="files/lib/dist/com.util.pc.gui/" id="com.util.pc.gui">
+          <methods name="registerComponent" type="Unit">
+            <parameters name="str" type="String"/>
+            <parameters name="w" type="Component"/>
+          </methods>
+          <methods name="removeComponent" type="Unit">
+            <parameters name="key" type=""/>
+          </methods>
+          <methods name="getComponent" type="Component">
+            <parameters name="" type=""/>
+          </methods>
+        </uses>
+      </components>
+      <components componentName="DOOR" componentRef="CBUTTONDOOR" componentDesc="The Door, can be clicked to open the door and reclicked to close the door.">
+        <state name="COOKING" ref="S0" desc="The door state when the oven is cooking.">
+          <attributes/>
+        </state>
+        <state name="OPEN" ref="S1" desc="The state when the door is open.">
+          <attributes/>
+        </state>
+        <state name="CLOSED" ref="s2" desc="">
+          <attributes/>
+        </state>
+        <behaviors behaviorType="Guard" behaviorName="clicked" behaviorRef="1" behaviorDesc="To detect whether the button is clicked" technicalDetail=""/>
+        <behaviors behaviorType="Guard" behaviorName="pressed" behaviorRef="2" behaviorDesc="To detect whether the button is pressed"/>
+        <behaviors behaviorType="Guard" behaviorName="released" behaviorRef="3" behaviorDesc="To detect whether the button is released"/>
+        <behaviors behaviorName="OPEN" behaviorRef="4"/>
+        <behaviors behaviorName="CLOSED" behaviorRef="5" behaviorDesc="Close the door."/>
+        <behaviors behaviorType="Guard" behaviorName="CLOSED" behaviorRef="6" behaviorDesc="Check whether the state is closed."/>
+        <behaviors behaviorType="Guard" behaviorName="OPEN" behaviorRef="7" behaviorDesc="Check whether the state is open."/>
+        <behaviors behaviorName="COOKING" behaviorRef="9"/>
+        <uses name="Display" desc="This component can be used to show GUI of the Model" location="files/lib/dist/com.util.pc.gui/" id="com.util.pc.gui">
+          <methods name="registerComponent" type="Unit">
+            <parameters name="str" type="String"/>
+            <parameters name="w" type="Component"/>
+          </methods>
+          <methods name="removeComponent" type="Unit">
+            <parameters name="key" type=""/>
+          </methods>
+          <methods name="getComponent" type="Component">
+            <parameters name="" type=""/>
+          </methods>
+        </uses>
+      </components>
+      <components componentName="OVENLABEL" componentRef="COVEN">
+        <uses name="Display" desc="This component can be used to show GUI of the Model" location="files/lib/dist/com.util.pc.gui/" id="com.util.pc.gui">
+          <methods name="registerComponent" type="Unit">
+            <parameters name="str" type="String"/>
+            <parameters name="w" type="Component"/>
+          </methods>
+          <methods name="removeComponent" type="Unit">
+            <parameters name="key" type=""/>
+          </methods>
+          <methods name="getComponent" type="Component">
+            <parameters name="" type=""/>
+          </methods>
+        </uses>
+      </components>
+    </componentList>
+    <requirementList projectId="817179">
+      <requirements Key="R49046989" Requirement="How to cook" Description="There is a single control button available for the use of the oven. If the oven&#xA;door is closed and you push the button, the oven will start cooking (that is,&#xA;energize the power-tube) for one minute." Id="49046989"/>
+      <requirements Key="R49046997" Requirement="Pushing the button when the door is open has no e*ffect." Description="The door is only valid to open." Id="49046997"/>
+      <requirements Key="R49047013" Requirement="Whenever the oven is cooking or the door is open, the light in the oven will&#xA;be on." Description="" Id="49047013"/>
+      <requirements Key="R49047019" Requirement="Opening the door stops the cooking." Description="" Id="49047019"/>
+      <requirements Key="R49047023" Requirement="Closing the door turns on* the light. This is the normal idle state, prior to cooking when the user has placed food in the oven." Description="" Id="49047023"/>
+      <requirements Key="R49047025" Requirement="If the oven times out, the light and the power-tube are turned o* and then a beeper emits a warning beep to indicate that the cooking has *finished." Description="" Id="49047025"/>
+      <requirements Key="R49046993" Requirement="Condition when button is pushed while cooking" Description="If the button is pushed while the oven is cooking, it will cause the oven to&#xA;cook for an extra minute." Id="49046993"/>
+      <requirements Key="R49169841" Requirement="Sometime people should be able to remove this label" Description="" Id="49169841"/>
+    </requirementList>
+    <formulaList/>
+    <libraries>
+      <import name="Sound" desc="This component can be used to play sound" location="files/lib/dist/com.media.pc.sound/" id="com.media.pc.sound">
+        <methods name="play" type="Int">
+          <parameters name="path" type="String"/>
+        </methods>
+      </import>
+      <import name="Display" desc="This component can be used to show GUI of the Model" location="files/lib/dist/com.util.pc.gui/" id="com.util.pc.gui">
+        <methods name="registerComponent" type="Unit">
+          <parameters name="str" type="String"/>
+          <parameters name="w" type="Component"/>
+        </methods>
+        <methods name="removeComponent" type="Unit">
+          <parameters name="key" type=""/>
+        </methods>
+        <methods name="getComponent" type="Component">
+          <parameters name="" type=""/>
+        </methods>
+      </import>
+      <import name="Timer" desc="This component can be used as a Timer" location="files/lib/dist/com.util.pc.timer/" id="com.util.pc.timer">
+        <methods name="start" type="Unit"/>
+        <methods name="stop" type="Unit"/>
+        <methods name="timeout" type="Bool"/>
+        <methods name="addMinute" type="Unit">
+          <parameters name="m" type="Int"/>
+        </methods>
+        <methods name="addSecond" type="Unit">
+          <parameters name="s" type="Int"/>
+        </methods>
+        <methods name="addHour" type="Unit">
+          <parameters name="h" type="Int"/>
+        </methods>
+        <states name="START" ref="S0" desc="Indicating that the timer is started"/>
+        <states name="TIMEOUT" ref="S1" desc="The condition that the timer already timeout">
+          <attributes>
+            <info key="TIMEOUT" value="0"/>
+          </attributes>
+        </states>
+        <behaviors behaviorName="START" behaviorRef="0" behaviorDesc="Start the timer" technicalDetail="timer_var!start();"/>
+        <attributes type="Int" name="duration" value="5"/>
+      </import>
+    </libraries>
+    <layoutList>
+      <layouts cRef="COVEN" x="40" y="20" width="796" height="654"/>
+      <layouts cRef="CBUTTON1" x="690" y="230" width="106" height="102"/>
+      <layouts cRef="CBUTTONDOOR" x="100" y="80" width="550" height="510"/>
+    </layoutList>
+  </org.be.graphbt.model:BEModel>
+  <org.be.graphbt.model:OperatorClass operatorLiteral="=>"/>
+  <org.be.graphbt.model:OperatorClass operatorLiteral="^"/>
+  <org.be.graphbt.model:OperatorClass operatorLiteral="--"/>
+  <org.be.graphbt.model:OperatorClass operatorLiteral="@"/>
+  <org.be.graphbt.model:OperatorClass operatorLiteral="&amp;&amp;"/>
+  <org.be.graphbt.model:OperatorClass operatorLiteral="||"/>
+  <org.be.graphbt.model:OperatorClass operatorLiteral="^^"/>
+  <org.be.graphbt.model:OperatorClass operatorLiteral=""/>
+  <org.be.graphbt.model:TraceabilityStatusClass traceabilityStatusLiteral=""/>
+  <org.be.graphbt.model:TraceabilityStatusClass traceabilityStatusLiteral="+"/>
+  <org.be.graphbt.model:TraceabilityStatusClass traceabilityStatusLiteral="-"/>
+  <org.be.graphbt.model:TraceabilityStatusClass traceabilityStatusLiteral="++"/>
+  <org.be.graphbt.model:TraceabilityStatusClass traceabilityStatusLiteral="--"/>
+  <org.be.graphbt.model:TraceabilityStatusClass traceabilityStatusLiteral="+-"/>
+  <org.be.graphbt.model:StandardNode traceabilityStatus="" operator="" label="null1367419384230" componentRef="C1" behaviorRef="1">
+    <edge composition="Atomic">
+      <childNode source="/15">
+        <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419384283" componentRef="C2" behaviorRef="1" leaf="true" parent="/15">
+          <edge composition="Atomic">
+            <childNode source="/15/@edge/@childNode.0/@target">
+              <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419384321" componentRef="C7" behaviorRef="14" leaf="true" parent="/15/@edge/@childNode.0/@target">
+                <edge container="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                  <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                    <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="1368848284205" componentRef="C7" behaviorRef="1" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                      <edge container="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                        <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                          <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419384510" componentRef="CBUTTONDOOR" behaviorRef="4" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                            <edge branch="Alternative">
+                              <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419384620" componentRef="CBUTTONDOOR" behaviorRef="1" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                  <edge>
+                                    <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                      <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419384653" componentRef="C7" behaviorRef="2" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                        <edge>
+                                          <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                            <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419384684" componentRef="C2" behaviorRef="3" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                              <edge container="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                  <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="1368851427976" componentRef="CBUTTON1" behaviorRef="5" traceabilityLink="" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                    <edge container="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                      <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                        <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419384720" componentRef="CBUTTONDOOR" behaviorRef="5" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                          <edge branch="Alternative">
+                                                            <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                              <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419384771" componentRef="CBUTTON1" behaviorRef="1" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                <edge>
+                                                                  <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                    <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419384811" componentRef="CBUTTON1" behaviorRef="4" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                      <edge>
+                                                                        <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                          <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419384854" componentRef="C3" behaviorRef="2" traceabilityLink="R49046989" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                            <edge container="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                              <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="1368851733832" componentRef="CBUTTONDOOR" behaviorRef="9" traceabilityLink="" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                  <edge container="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                    <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                      <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419384902" componentRef="C2" behaviorRef="1" traceabilityLink="R49047023" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                        <edge>
+                                                                                          <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                            <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419384952" componentRef="C9" behaviorRef="1" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                              <edge>
+                                                                                                <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                  <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419385013" componentRef="C7" behaviorRef="4" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                    <edge branch="Alternative">
+                                                                                                      <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                        <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419385137" componentRef="CBUTTONDOOR" behaviorRef="1" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                          <edge>
+                                                                                                            <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                              <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419385208" componentRef="C9" behaviorRef="3" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                                <edge>
+                                                                                                                  <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                                    <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419385618" componentRef="C3" behaviorRef="1" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                                      <edge>
+                                                                                                                        <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                                          <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419385711" componentRef="CBUTTON1" behaviorRef="6" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                                            <edge container="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                                              <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                                                <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="^" label="1369458355218" componentRef="C7" behaviorRef="1" traceabilityLink="" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target"/>
+                                                                                                                              </childNode>
+                                                                                                                            </edge>
+                                                                                                                          </target>
+                                                                                                                        </childNode>
+                                                                                                                      </edge>
+                                                                                                                    </target>
+                                                                                                                  </childNode>
+                                                                                                                </edge>
+                                                                                                              </target>
+                                                                                                            </childNode>
+                                                                                                          </edge>
+                                                                                                        </target>
+                                                                                                      </childNode>
+                                                                                                      <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                        <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419385920" componentRef="C9" behaviorRef="4" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                          <edge>
+                                                                                                            <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target">
+                                                                                                              <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419386034" componentRef="C2" behaviorRef="3" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target">
+                                                                                                                <edge>
+                                                                                                                  <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target">
+                                                                                                                    <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419386157" componentRef="C3" behaviorRef="1" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target">
+                                                                                                                      <edge>
+                                                                                                                        <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                                          <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419386280" componentRef="C1" behaviorRef="2" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                                            <edge>
+                                                                                                                              <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                                                <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419386412" componentRef="C1" behaviorRef="1" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                                                  <edge>
+                                                                                                                                    <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                                                      <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419386551" componentRef="C7" behaviorRef="7" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                                                        <edge>
+                                                                                                                                          <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                                                            <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="^" label="null1367419386693" componentRef="C7" behaviorRef="2" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target"/>
+                                                                                                                                          </childNode>
+                                                                                                                                        </edge>
+                                                                                                                                      </target>
+                                                                                                                                    </childNode>
+                                                                                                                                  </edge>
+                                                                                                                                </target>
+                                                                                                                              </childNode>
+                                                                                                                            </edge>
+                                                                                                                          </target>
+                                                                                                                        </childNode>
+                                                                                                                      </edge>
+                                                                                                                    </target>
+                                                                                                                  </childNode>
+                                                                                                                </edge>
+                                                                                                              </target>
+                                                                                                            </childNode>
+                                                                                                          </edge>
+                                                                                                        </target>
+                                                                                                      </childNode>
+                                                                                                      <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                        <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419386847" componentRef="CBUTTON1" behaviorRef="1" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                          <edge>
+                                                                                                            <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.2/@target">
+                                                                                                              <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419387007" componentRef="CBUTTON1" behaviorRef="4" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.2/@target">
+                                                                                                                <edge container="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.2/@target/@edge/@childNode.0/@target">
+                                                                                                                  <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.2/@target/@edge/@childNode.0/@target">
+                                                                                                                    <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="1368849575963" componentRef="CBUTTONDOOR" behaviorRef="9" traceabilityLink="" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.2/@target/@edge/@childNode.0/@target">
+                                                                                                                      <edge container="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.2/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                                        <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.2/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                                          <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419387174" componentRef="C9" behaviorRef="2" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.2/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                                            <edge>
+                                                                                                                              <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.2/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                                                                <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="^" label="null1367419387349" componentRef="C7" behaviorRef="4" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.2/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target"/>
+                                                                                                                              </childNode>
+                                                                                                                            </edge>
+                                                                                                                          </target>
+                                                                                                                        </childNode>
+                                                                                                                      </edge>
+                                                                                                                    </target>
+                                                                                                                  </childNode>
+                                                                                                                </edge>
+                                                                                                              </target>
+                                                                                                            </childNode>
+                                                                                                          </edge>
+                                                                                                        </target>
+                                                                                                      </childNode>
+                                                                                                    </edge>
+                                                                                                  </target>
+                                                                                                </childNode>
+                                                                                              </edge>
+                                                                                            </target>
+                                                                                          </childNode>
+                                                                                        </edge>
+                                                                                      </target>
+                                                                                    </childNode>
+                                                                                  </edge>
+                                                                                </target>
+                                                                              </childNode>
+                                                                            </edge>
+                                                                          </target>
+                                                                        </childNode>
+                                                                      </edge>
+                                                                    </target>
+                                                                  </childNode>
+                                                                </edge>
+                                                              </target>
+                                                            </childNode>
+                                                            <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                              <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419387536" componentRef="CBUTTONDOOR" behaviorRef="1" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                <edge>
+                                                                  <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target">
+                                                                    <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419387721" componentRef="C2" behaviorRef="1" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target">
+                                                                      <edge>
+                                                                        <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target">
+                                                                          <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="null1367419387914" componentRef="CBUTTONDOOR" behaviorRef="4" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target">
+                                                                            <edge container="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                              <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="1368850997966" componentRef="CBUTTON1" behaviorRef="6" traceabilityLink="" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                  <edge container="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                    <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                                                                      <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="^" label="null1367419388114" componentRef="C7" behaviorRef="1" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target"/>
+                                                                                    </childNode>
+                                                                                  </edge>
+                                                                                </target>
+                                                                              </childNode>
+                                                                            </edge>
+                                                                          </target>
+                                                                        </childNode>
+                                                                      </edge>
+                                                                    </target>
+                                                                  </childNode>
+                                                                </edge>
+                                                              </target>
+                                                            </childNode>
+                                                          </edge>
+                                                        </target>
+                                                      </childNode>
+                                                    </edge>
+                                                  </target>
+                                                </childNode>
+                                              </edge>
+                                            </target>
+                                          </childNode>
+                                        </edge>
+                                      </target>
+                                    </childNode>
+                                  </edge>
+                                </target>
+                              </childNode>
+                              <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="1369457893002" componentRef="CBUTTON1" behaviorRef="1" traceabilityLink="" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                                  <edge container="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target">
+                                    <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target">
+                                      <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="^" label="1369457930014" componentRef="C7" behaviorRef="1" traceabilityLink="" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target"/>
+                                    </childNode>
+                                  </edge>
+                                </target>
+                              </childNode>
+                            </edge>
+                          </target>
+                        </childNode>
+                      </edge>
+                    </target>
+                  </childNode>
+                </edge>
+              </target>
+            </childNode>
+          </edge>
+        </target>
+      </childNode>
+    </edge>
+  </org.be.graphbt.model:StandardNode>
+  <org.be.graphbt.model:Requirement Key="" Requirement="This is the default Requirement"/>
+  <org.be.graphbt.model:AlternativeClass alternativeAttribute=""/>
+</xmi:XMI>

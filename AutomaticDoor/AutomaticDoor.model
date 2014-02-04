@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.be.graphbt.model="http://graphbt/1.0">
+  <org.be.graphbt.model:BEModel name="Automatic Door" reversionNode="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target/@edge/@childNode.0/@target" subtitle="Automatic Door is a simple program to reflects an automatic door. It will open the door if the sensor is pressed and close the door if the sensor is released." version="v.1.0">
+    <componentList>
+      <components componentName="StepSensor" componentRef="CBUTTON1" componentDesc="Sensor to detect steps. ">
+        <behaviors behaviorType="Guard" behaviorName="clicked" behaviorRef="1" behaviorDesc="To detect whether the button is clicked"/>
+        <behaviors behaviorType="Guard" behaviorName="pressed" behaviorRef="2" behaviorDesc="To detect whether the button is pressed"/>
+        <behaviors behaviorType="Guard" behaviorName="released" behaviorRef="3" behaviorDesc="To detect whether the button is released"/>
+        <uses name="Display" desc="This component can be used to show GUI of the Model" location="files/lib/dist/com.util.pc.gui/" id="com.util.pc.gui">
+          <methods name="registerComponent" type="Unit">
+            <parameters name="str" type="String"/>
+            <parameters name="w" type="Component"/>
+          </methods>
+          <methods name="removeComponent" type="Unit">
+            <parameters name="key" type=""/>
+          </methods>
+          <methods name="getComponent" type="Component">
+            <parameters name="" type=""/>
+          </methods>
+        </uses>
+      </components>
+      <components componentName="LeftDoor" componentRef="CDOORLEFT" componentDesc="The left door.">
+        <behaviors behaviorName="shiftleft" behaviorRef="1" behaviorDesc="Shift the door to the left" technicalDetail="GUIUpdater gui = new cog GUIUpdaterImpl();&#xD;&#xA;gui!shift(display_var,&quot;CDOORLEFT&quot;,-150,500);"/>
+        <behaviors behaviorName="shiftright" behaviorRef="2" behaviorDesc="Shift the door to the right." technicalDetail="GUIUpdater gui = new cog GUIUpdaterImpl();&#xD;&#xD;&#xA;gui!shift(display_var,&quot;CDOORLEFT&quot;,150,500);"/>
+        <uses name="Display" desc="This component can be used to show GUI of the Model" location="files/lib/dist/com.util.pc.gui/" id="com.util.pc.gui">
+          <methods name="registerComponent" type="Unit">
+            <parameters name="str" type="String"/>
+            <parameters name="w" type="Component"/>
+          </methods>
+          <methods name="removeComponent" type="Unit">
+            <parameters name="key" type=""/>
+          </methods>
+          <methods name="getComponent" type="Component">
+            <parameters name="" type=""/>
+          </methods>
+        </uses>
+      </components>
+      <components componentName="RightDoor" componentRef="CDOORRIGHT" componentDesc="The right door.">
+        <behaviors behaviorName="shiftleft" behaviorRef="1" behaviorDesc="Shift the door to the left." technicalDetail="GUIUpdater gui = new cog GUIUpdaterImpl();&#xD;&#xD;&#xA;gui!shift(display_var,&quot;CDOORRIGHT&quot;,-150,500);"/>
+        <behaviors behaviorName="shiftright" behaviorRef="2" behaviorDesc="Shift the door to the right." technicalDetail="GUIUpdater gui = new cog GUIUpdaterImpl();&#xD;&#xD;&#xA;gui!shift(display_var,&quot;CDOORRIGHT&quot;,150,500);"/>
+        <uses name="Display" desc="This component can be used to show GUI of the Model" location="files/lib/dist/com.util.pc.gui/" id="com.util.pc.gui">
+          <methods name="registerComponent" type="Unit">
+            <parameters name="str" type="String"/>
+            <parameters name="w" type="Component"/>
+          </methods>
+          <methods name="removeComponent" type="Unit">
+            <parameters name="key" type=""/>
+          </methods>
+          <methods name="getComponent" type="Component">
+            <parameters name="" type=""/>
+          </methods>
+        </uses>
+      </components>
+      <components componentName="Mall" componentRef="CMALL" componentDesc="The inner part of the mall. Can be seen when the door is open.">
+        <uses name="Display" desc="This component can be used to show GUI of the Model" location="files/lib/dist/com.util.pc.gui/" id="com.util.pc.gui">
+          <methods name="registerComponent" type="Unit">
+            <parameters name="str" type="String"/>
+            <parameters name="w" type="Component"/>
+          </methods>
+          <methods name="removeComponent" type="Unit">
+            <parameters name="key" type=""/>
+          </methods>
+          <methods name="getComponent" type="Component">
+            <parameters name="" type=""/>
+          </methods>
+        </uses>
+      </components>
+      <components componentName="LeftWall" componentRef="CWALLLEFT" componentDesc="The left wall.">
+        <uses name="Display" desc="This component can be used to show GUI of the Model" location="files/lib/dist/com.util.pc.gui/" id="com.util.pc.gui">
+          <methods name="registerComponent" type="Unit">
+            <parameters name="str" type="String"/>
+            <parameters name="w" type="Component"/>
+          </methods>
+          <methods name="removeComponent" type="Unit">
+            <parameters name="key" type=""/>
+          </methods>
+          <methods name="getComponent" type="Component">
+            <parameters name="" type=""/>
+          </methods>
+        </uses>
+      </components>
+      <components componentName="RightWall" componentRef="CWALLRIGHT" componentDesc="The right wall.">
+        <uses name="Display" desc="This component can be used to show GUI of the Model" location="files/lib/dist/com.util.pc.gui/" id="com.util.pc.gui">
+          <methods name="registerComponent" type="Unit">
+            <parameters name="str" type="String"/>
+            <parameters name="w" type="Component"/>
+          </methods>
+          <methods name="removeComponent" type="Unit">
+            <parameters name="key" type=""/>
+          </methods>
+          <methods name="getComponent" type="Component">
+            <parameters name="" type=""/>
+          </methods>
+        </uses>
+      </components>
+      <components componentName="TopWall" componentRef="CWALLTOP" componentDesc="The top part of the wall.">
+        <uses name="Display" desc="This component can be used to show GUI of the Model" location="files/lib/dist/com.util.pc.gui/" id="com.util.pc.gui">
+          <methods name="registerComponent" type="Unit">
+            <parameters name="str" type="String"/>
+            <parameters name="w" type="Component"/>
+          </methods>
+          <methods name="removeComponent" type="Unit">
+            <parameters name="key" type=""/>
+          </methods>
+          <methods name="getComponent" type="Component">
+            <parameters name="" type=""/>
+          </methods>
+        </uses>
+      </components>
+      <components componentName="Host" componentRef="CHOST" componentDesc="The host of the system.">
+        <behaviors behaviorName="start" behaviorRef="1" behaviorDesc="Realize that the system is started." technicalDetail="sound_var!play(&quot;resource/beep.wav&quot;);"/>
+        <uses name="Display" desc="This component can be used to show GUI of the Model" location="files/lib/dist/com.util.pc.gui/" id="com.util.pc.gui">
+          <methods name="registerComponent" type="Unit">
+            <parameters name="str" type="String"/>
+            <parameters name="w" type="Component"/>
+          </methods>
+          <methods name="removeComponent" type="Unit">
+            <parameters name="key" type=""/>
+          </methods>
+          <methods name="getComponent" type="Component">
+            <parameters name="" type=""/>
+          </methods>
+        </uses>
+        <uses name="Sound" desc="This component can be used to play sound" location="files/lib/dist/com.media.pc.sound/" id="com.media.pc.sound">
+          <methods name="play" type="Int">
+            <parameters name="path" type="String"/>
+          </methods>
+        </uses>
+      </components>
+    </componentList>
+    <requirementList/>
+    <formulaList/>
+    <libraries>
+      <import name="Display" desc="This component can be used to show GUI of the Model" location="files/lib/dist/com.util.pc.gui/" id="com.util.pc.gui">
+        <methods name="registerComponent" type="Unit">
+          <parameters name="str" type="String"/>
+          <parameters name="w" type="Component"/>
+        </methods>
+        <methods name="removeComponent" type="Unit">
+          <parameters name="key" type=""/>
+        </methods>
+        <methods name="getComponent" type="Component">
+          <parameters name="" type=""/>
+        </methods>
+      </import>
+      <import name="Sound" desc="This component can be used to play sound" location="files/lib/dist/com.media.pc.sound/" id="com.media.pc.sound">
+        <methods name="play" type="Int">
+          <parameters name="path" type="String"/>
+        </methods>
+      </import>
+    </libraries>
+    <layoutList>
+      <layouts cRef="CMALL" x="60" y="40" width="491" height="368"/>
+      <layouts cRef="CBUTTON1" x="90" y="340" width="432" height="164"/>
+      <layouts cRef="CDOORLEFT" x="130" y="100" width="173" height="304"/>
+      <layouts cRef="CDOORRIGHT" x="300" y="100" width="173" height="304"/>
+      <layouts cRef="CWALLLEFT" x="40" y="50" width="96" height="354"/>
+      <layouts cRef="CWALLTOP" x="130" y="50" width="345" height="57"/>
+      <layouts cRef="CWALLRIGHT" x="470" y="50" width="96" height="354"/>
+    </layoutList>
+  </org.be.graphbt.model:BEModel>
+  <org.be.graphbt.model:OperatorClass operatorLiteral="=>"/>
+  <org.be.graphbt.model:OperatorClass operatorLiteral="^"/>
+  <org.be.graphbt.model:OperatorClass operatorLiteral="--"/>
+  <org.be.graphbt.model:OperatorClass operatorLiteral="@"/>
+  <org.be.graphbt.model:OperatorClass operatorLiteral="&amp;&amp;"/>
+  <org.be.graphbt.model:OperatorClass operatorLiteral="||"/>
+  <org.be.graphbt.model:OperatorClass operatorLiteral="^^"/>
+  <org.be.graphbt.model:OperatorClass operatorLiteral=""/>
+  <org.be.graphbt.model:TraceabilityStatusClass traceabilityStatusLiteral=""/>
+  <org.be.graphbt.model:TraceabilityStatusClass traceabilityStatusLiteral="+"/>
+  <org.be.graphbt.model:TraceabilityStatusClass traceabilityStatusLiteral="-"/>
+  <org.be.graphbt.model:TraceabilityStatusClass traceabilityStatusLiteral="++"/>
+  <org.be.graphbt.model:TraceabilityStatusClass traceabilityStatusLiteral="--"/>
+  <org.be.graphbt.model:TraceabilityStatusClass traceabilityStatusLiteral="+-"/>
+  <org.be.graphbt.model:StandardNode traceabilityStatus="" operator="" label="1368486716765" componentRef="CHOST" behaviorRef="1" traceabilityLink="">
+    <edge container="/15">
+      <childNode source="/15">
+        <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="1368487228623" componentRef="CBUTTON1" behaviorRef="2" traceabilityLink="" leaf="true" parent="/15">
+          <edge container="/15/@edge/@childNode.0/@target">
+            <childNode source="/15/@edge/@childNode.0/@target">
+              <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="1368487237034" componentRef="CBUTTON1" behaviorRef="3" traceabilityLink="" leaf="true" parent="/15/@edge/@childNode.0/@target">
+                <edge container="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                  <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                    <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="1368487256859" componentRef="CDOORLEFT" behaviorRef="2" traceabilityLink="" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target"/>
+                  </childNode>
+                  <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                    <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="1368487258482" componentRef="CDOORRIGHT" behaviorRef="1" traceabilityLink="" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target">
+                      <edge container="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target">
+                        <childNode source="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target">
+                          <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="^" label="1368487319298" componentRef="CHOST" behaviorRef="1" traceabilityLink="" leaf="true" parent="/15/@edge/@childNode.0/@target/@edge/@childNode.0/@target/@edge/@childNode.1/@target"/>
+                        </childNode>
+                      </edge>
+                    </target>
+                  </childNode>
+                </edge>
+              </target>
+            </childNode>
+            <childNode source="/15/@edge/@childNode.0/@target">
+              <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="1368487246254" componentRef="CDOORLEFT" behaviorRef="1" traceabilityLink="" leaf="true" parent="/15/@edge/@childNode.0/@target"/>
+            </childNode>
+            <childNode source="/15/@edge/@childNode.0/@target">
+              <target xsi:type="org.be.graphbt.model:StandardNode" traceabilityStatus="" operator="" label="1368487253770" componentRef="CDOORRIGHT" behaviorRef="2" traceabilityLink="" leaf="true" parent="/15/@edge/@childNode.0/@target"/>
+            </childNode>
+          </edge>
+        </target>
+      </childNode>
+    </edge>
+  </org.be.graphbt.model:StandardNode>
+  <org.be.graphbt.model:Requirement Key="" Requirement="This is the default Requirement"/>
+  <org.be.graphbt.model:AlternativeClass alternativeAttribute=""/>
+</xmi:XMI>
